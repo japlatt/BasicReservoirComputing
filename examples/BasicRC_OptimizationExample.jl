@@ -74,11 +74,9 @@ reservoir = test_rc(system, merge(params, (N=N, ρA=0.02, nspin=200)))
 renorm = 10 # speeds up the calculation by not doing QR renormalization every step
 nspin = 200
 
-max_steps = trunc(Int, (train_time/Δt- nspin)/renorm) # training steps-nspin
 rc_LEs = Global_LEs(reservoir, utrain, nspin, 
                     num_exp = length(system.u0),
-                    renorm_steps=renorm,
-                    num_evals = max_steps)
+                    renorm_steps=renorm)
 sys_LEs = lyapunovspectrum(system, 10000)
 println("rc_LEs = $rc_LEs")
 println("system_LEs = $sys_LEs")

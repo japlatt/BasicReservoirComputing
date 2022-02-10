@@ -7,7 +7,7 @@ Email: 1763platt@gmail.com
 
 module RC
 
-export rc, train_RC, test_RC, forecast_RC, TLM, Global_LEs
+export rc, train_RC, test_RC, forecast_RC, TLM!, Global_LEs
 
 using SparseArrays
 using LinearAlgebra
@@ -215,7 +215,7 @@ function TLM!(Q, rc, r)
     Q[diagind(Q)].+=(1 - rc.α)
 end
 
-function Global_LEs(rc::rc, u, nspin; num_exp = 1, renorm_steps=10, num_evals = 1000)
+function Global_LEs(rc::rc, u, nspin; num_exp = 1, renorm_steps=10)
     """Find the Lyapunov Exponents of the rc
 
     Args:
@@ -234,6 +234,7 @@ function Global_LEs(rc::rc, u, nspin; num_exp = 1, renorm_steps=10, num_evals = 
     function fJac!(Jnew, x, p, t)
         TLM!(Jnew, rc, x)
     end
+    num_evals = trunc(Int, (size(u)[2]-nspin)/renorm_steps)
     DS = DiscreteDynamicalSystem(f!, zeros(rc.N), [u], fJac!)
     return lyapunovspectrum(DS, num_evals, num_exp, Δt = renorm_steps, Ttr = nspin)/rc.Δt
 end
@@ -346,6 +347,6 @@ end
 end
 using .RC
 using .Opt
-export rc, train_RC, test_RC, forecast_RC, TLM, Global_LEs, opt, opt_lower_bounds, opt_upper_bounds
+export rc, train_RC, test_RC, forecast_RC, TLM!, Global_LEs, opt, opt_lower_bounds, opt_upper_bounds
 
 end

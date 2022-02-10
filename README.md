@@ -4,6 +4,8 @@ Implementation of a reservoir computer with functions to optimize the parameters
 Please cite if using this code:
 Platt, J. A., Penny, S. G., Smith, T. A., Chen, T.-C., & Abarbanel, H. D. I. (2022). A Systematic Exploration of Reservoir Computing for Forecasting Complex Spatiotemporal Dynamics. arXiv http://arxiv.org/abs/2201.08910
 
+Examples are found under the examples folder in the github repo.
+
 ## Basic Functionality
 The code is built around the rc object
 
@@ -64,7 +66,7 @@ function forecast_RC(rc::rc, nsteps; uspin=nothing, r0 = nothing)
     """
 ```
 The functionality is that we can either give a reservoir state r0 to start the forecast or some data uspin in order to "spin up" the reservoir.  See the paper for more discussion.  If we'd like to test an ensemble off different test data then we can use test_RC() to return an array of valid prediction time.
-```
+```Julia
 function test_RC(rc::rc, test_arr; ϵ=0.3, spinup=100)
     """Test the RC on all the forecasts in test_arr
 
