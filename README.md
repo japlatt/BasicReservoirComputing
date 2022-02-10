@@ -110,6 +110,24 @@ function (f::opt)(;maxtime=200, popsize = 15, multithread = false)
 ```
 so if optimization = opt(train_data, valid_data_list, spinup_steps, N, ρA) then just call optimization() to get the best parameters.  Multithreading can be a bit temperamental on some systems, make sure to initialize julia with multiple threads "julia -t2" if using this option.  maxtime and popsize may need to be adjusted depending on the difficulty of the problem.
 
+An example from the examples folder is shown below
+```Julia
+function opt_rc(N, train_data, valid_data; Δt = 0.01)
+    """Find the RC parameters through optimization"""
+    # define some parameters
+    nspin = 200
+    ρA = 0.02
+    D = size(train_data)[1]
+    multithread = Threads.nthreads() > 1 ? true : false
+
+    # Optimize the RC
+    rc_opt = opt(train_data, valid_data, nspin, N, ρA,
+                 lb = opt_lower_bounds(), ub = opt_upper_bounds())
+    params, cost = rc_opt(maxtime=200, multithread=multithread)
+    return params
+end
+```
+
 ## Lyapunov Exponents
 One way to check the fidelity of the RC is to check that its Lyapunov exponents match those of the input data.  See the paper or 
 >Jason A. Platt et al. "Robust forecasting using predictive generalized synchronization in reservoir computing". In: Chaos 31 (2021), p. 123118. URL: <https://doi.org/10.1063/5.0066013>.
