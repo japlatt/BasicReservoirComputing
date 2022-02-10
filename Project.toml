@@ -1,7 +1,7 @@
 name = "BasicReservoirComputing"
 uuid = "4a4a54cb-0a73-4437-978b-99751ad1ba7d"
 authors = ["Jason Platt <1763platt@gmail.com>"]
-version = "0.1.0"
+version = "1.0.0"
 
 [deps]
 ArnoldiMethod = "ec485272-7323-5ecc-a04f-4719b315124d"
