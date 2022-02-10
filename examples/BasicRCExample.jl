@@ -4,9 +4,7 @@ using DifferentialEquations
 using LinearAlgebra
 using DynamicalSystems
 using Parameters
-
-include("../src/BasicReservoirComputing.jl")
-using .BasicReservoirComputing
+using BasicReservoirComputing
 
 include("utilities.jl")
 
@@ -40,4 +38,4 @@ end
 
 params = (N=200, σ=0.084, α=0.6, SR=0.8, ρA=0.02, β=8.5e-8, σb=1.6, nspin=200)
 system = Systems.lorenz()
-test_rc(system, params);
+reservoir = test_rc(system, params);

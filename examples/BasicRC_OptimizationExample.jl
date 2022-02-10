@@ -2,9 +2,7 @@ using LinearAlgebra
 using DynamicalSystems
 using Parameters
 using Plots
-
-include("../src/BasicReservoirComputing.jl")
-using .BasicReservoirComputing
+using BasicReservoirComputing
 
 include("utilities.jl")
 

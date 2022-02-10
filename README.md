@@ -6,6 +6,18 @@ Platt, J. A., Penny, S. G., Smith, T. A., Chen, T.-C., & Abarbanel, H. D. I. (20
 
 Examples are found under the examples folder in the github repo.
 
+To install the package should be registered.
+```Julia
+import Pkg
+Pkg.add("BasicReservoirComputing")
+```
+
+if not then add from github
+```Julia
+import Pkg
+Pkg.add("git@github.com:japlatt/DynamicalRC.git")
+```
+
 ## Basic Functionality
 The code is built around the rc object
 
