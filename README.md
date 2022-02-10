@@ -2,7 +2,7 @@
 Implementation of a reservoir computer with functions to optimize the parameters and calculate the Lyapunov exponents
 
 Please cite if using this code:
-Platt, J. A., Penny, S. G., Smith, T. A., Chen, T.-C., & Abarbanel, H. D. I. (2022). A Systematic Exploration of Reservoir Computing for Forecasting Complex Spatiotemporal Dynamics. arXiv http://arxiv.org/abs/2201.08910
+>Platt, J. A., Penny, S. G., Smith, T. A., Chen, T.-C., & Abarbanel, H. D. I. (2022). A Systematic Exploration of Reservoir Computing for Forecasting Complex Spatiotemporal Dynamics. arXiv http://arxiv.org/abs/2201.08910
 
 Examples are found under the examples folder in the github repo.
 
