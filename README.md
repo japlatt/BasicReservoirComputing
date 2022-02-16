@@ -163,3 +163,6 @@ function Global_LEs(rc::rc, u, nspin; num_exp = 1, renorm_steps=10)
 calculated with the help of DynamicalSystems.jl <https://juliadynamics.github.io/DynamicalSystems.jl/dev/>.  u is the data over which the estimate is done.  renorm_steps can help speed up the computation but will reduce accuracy if one is looking for the short term exponents.  Warning: the finite time LEs are not invariant over the attractor.  num_exp chooses the number of LEs to calculate.
 
 We also expose the Tangent linear model TLM()/TLM!() in case one has need of it.  For instance in data assimilation algorithms.
+
+## Possible Bugs
+There may be an issue with the matrix solve and multithreading.  This is sometimes solved by using MKL as a backend for the matrix operations but not always.  Still trying to track this one down.  If you run into issues you can try changing this.
