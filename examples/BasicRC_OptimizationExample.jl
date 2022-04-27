@@ -2,8 +2,8 @@ using LinearAlgebra
 using DynamicalSystems
 using Parameters
 using Plots
+using MKL
 using BasicReservoirComputing
-
 include("utilities.jl")
 
 function opt_rc(N, train_data, valid_data; Δt = 0.01)
