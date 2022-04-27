@@ -30,8 +30,8 @@ function plot_prediction(time, upred, utrue)
             px = plot(time, upred[1, :], label="RC")
             plot!(px, time, utrue[1, :], label="Truth")
         else
-            px = plot(time, upred[2, :])
-            plot!(px, time, utrue[2, :], legend=false)
+            px = plot(time, upred[i, :])
+            plot!(px, time, utrue[i, :], legend=false)
         end
         ylabel!(px, "X$i")
         if i!=D xticks!(px, Int[]) end
